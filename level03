@@ -1,0 +1,19 @@
+level03 executable
+
+by analyzing the strings in level03 execultable 
+strings level03
+
+/usr/bin/env echo Exploit me
+
+found the line above, then I dig deep to find what permissions do /usr/bin/env have, 
+I foudn that it has root privilage
+
+so what I thought about if I can trick this commnad to execute getflag instead of echo will get it
+so I created new dir inside tmp called it antother_bin, then copied getflag reanming it echo, 
+then updating the path to include the another_bin first, so that when echo is called the first place will be searched is the another_bin, and it will execute the spoofed echo
+and it works
+
+export PATH=/tmp/another:$PATH
+
+./level03 getflag
+Check flag.Here is your token : qi0maab88jeaj46qoumi7maus
