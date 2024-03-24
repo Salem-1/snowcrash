@@ -1,0 +1,5 @@
+open the http://127.0.0.1/?page=feedback
+
+post feedback with :
+name: <script> al 
+feedback: <script> alert(1) </script>
