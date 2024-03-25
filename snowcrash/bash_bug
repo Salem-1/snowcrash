@@ -1,0 +1,22 @@
+
+nFrom: level05 
+To: bug-bash@gnu.org,bash@packages.debian.org 
+Subject: [50 character or so descriptive subject here (for reference)] n Configuration Information [Automatically generated, do not change]: 
+Machine: i686 OS: linux-gnu Compiler: gcc Compilation CFLAGS: -DPROGRAM='bash' -DCONF_HOSTTYPE='i686' -DCONF_OSTYPE='linux-gnu'
+-DCONF_MACHTYPE='i686-pc-linux-gnu' -DCONF_VENDOR='pc' -DLOCALEDIR='/usr/share/locale' -DPACKAGE='bash' -DSHELL -DHAVE_CONFIG_H -I.  -I../bash -I../bash/include -I../bash/lib -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -Wall uname output: Linux SnowCrash 3.2.0-89-generic-pae
+#127-Ubuntu SMP Tue Jul 28 09:52:21 UTC 2015 i686 i686 i386 GNU/Linux Machine Type: i686-pc-linux-gnu
+n Bash Version: 4.2 Patch Level: 25 Release Status: release
+
+Description:
+        [Detailed description of the problem, suggestion, or complaint.]
+
+Repeat-By:
+        [Describe the sequence of events that causes the problem
+        to occur.]
+
+Fix:
+        [Description of how to fix the problem.  If you don't know a
+        fix for the problem, don't include this section.]
+
+
+

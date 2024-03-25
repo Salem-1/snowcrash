@@ -1,0 +1,197 @@
+From: level05
+To: bug-bash@gnu.org,bash@packages.debian.org
+Subject: [50 character or so descriptive subject here (for reference)]
+Configuration Information [Automatically generated, do not change]: Machine: i686 OS: linux-gnu Com
+-DCONF_MACHTYPE='i686-pc-linux-gnu' -DCONF_VENDOR='pc' -DLOCALEDIR='/usr/share/locale' -DPACKAGE='bash' -DSHELL -DHAVE_CONFIG_H -I.  -I../bash -I../bash/include -I../bash/lib -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-b
+#127-Ubuntu SMP Tue Jul 28 09:52:21 UTC 2015 i686 i686 i386 GNU/Linux Machine Type: i686-pc-linux-gnu
+Bash Version: 4.2 Patch Level: 25 Release Status: release
+
+Description:
+#!/bin/sh
+
+for i in /opt/openarenaserver/* ; do
+        (ulimit -t 5; bash -x "$i")
+        rm -rf $i
+done
+I am using this machine as part of cybersecurity project in 42 Abu Dhabi school, What I was trying to do at the beging to exploit the cron job to run me script /bin/getflag using flag05 user, however the command was running in the background
+, the loop above was written by people who created the machine, so I tried to play with it to understand it's behaviour by copying /bin/getflag to /opt/openarenaserver/* however the script was executed without giving output in my current terminal then the getflag binary delted, then I got the idea to stress test the machine, and here I am prompted to send you bug report.
+        I copied all the binaries of the path in one file then run all files by looping through them
+
+Then I got this message opened for me.
+
+Looking forward to hear back from you on this bug
+Repeat-By:
+        cd /opt/openarenaserver
+        env | grep -i path
+        cp /sbin/* . ; cp /bin/* . ; cp /usr/bin/* .
+        for i in /opt/openarenaserver/* ; do
+                (ulimit -t 5; bash -x "$i")
+        done
+
+
+level05@SnowCrash:/opt/openarenaserver$ cat /usr/sbin/openarenaserver
+#!/bin/sh
+
+for i in /opt/openarenaserver/* ; do
+        (ulimit -t 5; bash -x "$i")
+      
+done
+
+Terminal output:
++ TEMPFILE1=/tmp/bbug.6529/bbug1
++ TEMPFILE2=/tmp/bbug.6529/bbug2
++ USAGE='Usage: /opt/openarenaserver/bashbug [--help] [--version] [bug-report-email-address]'
++ VERSTR='GNU bashbug, version 4.2.25-release'
++ do_help=
++ do_version=
++ '[' 0 -gt 0 ']'
++ '[' -n '' ']'
++ '[' -n '' ']'
+++ echo 'hi there\c'
++ N='hi there\c'
++ case "$N" in
++ n=-n
++ c=
++ BASHTESTERS=bash-testers@cwru.edu
++ case "$RELSTATUS" in
++ BUGBASH=bug-bash@gnu.org
++ case "$RELSTATUS" in
++ BUGBASH=bug-bash@gnu.org,bash@packages.debian.org
++ BUGADDR=bug-bash@gnu.org,bash@packages.debian.org
++ '[' -z '' ']'
++ '[' -z '' ']'
++ '[' -x /usr/bin/editor ']'
++ DEFEDITOR=editor
++ : editor
++ : level05
++ trap 'rm -rf "$TEMPDIR"; exit 1' 1 2 3 13 15
++ trap 'rm -rf "$TEMPDIR"' 0
++ UN=
+++ uname -a
++ UN='Linux SnowCrash 3.2.0-89-generic-pae #127-Ubuntu SMP Tue Jul 28 09:52:21 UTC 2015 i686 i686 i386 GNU/Linux'
++ '[' -f /usr/lib/sendmail ']'
++ '[' -f /usr/sbin/sendmail ']'
++ RMAIL=rmail
++ SMARGS=bug-bash@gnu.org,bash@packages.debian.org
++ INITIAL_SUBJECT='[50 character or so descriptive subject here (for reference)]'
++ cat
++ cp /tmp/bbug.6529/bbug1 /tmp/bbug.6529/bbug2
++ chmod u+w /tmp/bbug.6529/bbug1
++ trap '' 2
++ edstat=1
++ '[' 1 -ne 0 ']'
++ editor /tmp/bbug.6529/bbug1
++ edstat=0
++ '[' 0 -ne 0 ']'
+++ sed 1q
+++ sed 's|^Subject:[ 	]*||'
+++ grep '^Subject: ' /tmp/bbug.6529/bbug1
++ CURR_SUB='[50 character or so descriptive subject here (for reference)]'
++ case "$CURR_SUB" in
++ echo
+
++ echo '/opt/openarenaserver/bashbug: You have not changed the subject from the default.'
+/opt/openarenaserver/bashbug: You have not changed the subject from the default.
++ echo '/opt/openarenaserver/bashbug: Please use a more descriptive subject header.'
+/opt/openarenaserver/bashbug: Please use a more descriptive subject header.
++ echo '/opt/openarenaserver/bashbug: Type `y'\'' to give up, and lose your bug report;'
+/opt/openarenaserver/bashbug: Type `y' to give up, and lose your bug report;
++ echo '/opt/openarenaserver/bashbug: type `n'\'' to re-enter the editor.'
+/opt/openarenaserver/bashbug: type `n' to re-enter the editor.
++ echo -n '/opt/openarenaserver/bashbug: Do you want to give up? '
+/opt/openarenaserver/bashbug: Do you want to give up? + read ans
+^C^Ccn
++ case "$ans" in
++ echo '/opt/openarenaserver/bashbug:  The editor will be restarted in five seconds.'
+/opt/openarenaserver/bashbug:  The editor will be restarted in five seconds.
++ sleep 5
+n
+n
+n
++ edstat=1
++ '[' 1 -ne 0 ']'
++ editor /tmp/bbug.6529/bbug1
++ edstat=0
++ '[' 0 -ne 0 ']'
+++ grep '^Subject: ' /tmp/bbug.6529/bbug1
+++ sed 's|^Subject:[ 	]*||'
+++ sed 1q
++ CURR_SUB=
++ case "$CURR_SUB" in
++ '[' 0 -ne 0 ']'
++ trap 'rm -rf "$TEMPDIR"; exit 1' 2
++ cmp -s /tmp/bbug.6529/bbug1 /tmp/bbug.6529/bbug2
++ echo -n 'Send bug report to bug-bash@gnu.org,bash@packages.debian.org? [y/n] '
+Send bug report to bug-bash@gnu.org,bash@packages.debian.org? [y/n] + read ans
+
+
+
+From: level05
+To: bug-bash@gnu.org,bash@packages.debian.org
+Subject: [50 character or so descriptive subject here (for reference)]
+
+Configuration Information [Automatically generated, do not change]:
+Machine: i686
+OS: linux-gnu
+Compiler: gcc
+Compilation CFLAGS:  -DPROGRAM='bash' -DCONF_HOSTTYPE='i686' -DCONF_OSTYPE='linux-gnu' -DCONF_MACHTYPE='i686-pc-linux-gnu' -DCONF_VENDOR='pc' -DLOCALEDIR='/usr/share/locale' -DPACKAGE='bash' -DSHELL -DHAVE_CONFIG_H   -I.  -I../bash -I../bash/include -I../bash/lib  -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-securit$
+uname output: Linux SnowCrash 3.2.0-89-generic-pae #127-Ubuntu SMP Tue Jul 28 09:52:21 UTC 2015 i686 i686 i386 GNU/Linux
+Machine Type: i686-pc-linux-gnu
+
+Bash Version: 4.2
+Patch Level: 25
+Release Status: release
+
+Description:
+        [Detailed description of the problem, suggestion, or complaint.]
+
+Repeat-By:
+        [Describe the sequence of events that causes the problem
+        to occur.]
+
+Fix:
+        [Description of how to fix the problem.  If you don't know a
+        fix for the problem, don't include this section.]
+
+
+
+level05@SnowCrash:/opt/openarenaserver$ cp /usr/local/sbin/* . ; cp /usr/local/bin/* . ; cp /usr/sbin/* .; cp /usr/bin/* . ;  cp /sbin/*  . ; cp /bin/* .; cp /usr/games/* .
+for i in /opt/openarenaserver/* ; do
+       (ulimit -t 5; bash -x "$i")
+done
+
+
+
+From: level05
+To: bug-bash@gnu.org, bash@packages.debian.org
+Subject: [Regarding Unexpected Behavior and Stress Testing]
+
+Configuration Information [Automatically generated, do not change]:
+Machine: i686
+OS: linux-gnu
+uname output: Linux SnowCrash 3.2.0-89-generic-pae #127-Ubuntu SMP Tue Jul 28 09:52:21 UTC 2015 i686 i686 i386 GNU/Linux
+Machine Type: i686-pc-linux-gnu
+Bash Version: 4.2
+Patch Level: 25
+Release Status: release
+
+Description:
+I encountered unexpected behavior while attempting to exploit a cron job to run my script `/bin/getflag` using the `flag05` user. The command ran in the background without producing any output in my terminal. To understand the behavior better, I copied `/bin/getflag` to `/opt/openarenaserver/*`, where I observed that the script executed without giving any output in my current terminal, and then the `getflag` binary was deleted unexpectedly.
+
+Subsequently, I decided to stress test the machine, which led to the situation prompting me to send this bug report. As part of the stress testing, I copied all the binaries from specific paths into one file and then ran all the files by looping through them in the `/opt/openarenaserver/` directory.
+
+Repeat-By:
+1. Navigate to the `/opt/openarenaserver/` directory.
+2. Check the environment variables using `env | grep -i path`.
+3. Copy system binaries using the commands:
+cp /sbin/* .
+cp /bin/* .
+cp /usr/bin/* .
+4. Execute the stress testing script:
+for i in /opt/openarenaserver/* ; do
+(ulimit -t 5; bash -x "$i")
+done
+Looking forward to hearing back from you regarding this bug.
+
+Best regards,
+level05
